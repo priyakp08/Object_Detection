@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Detection Results</title>
+</head>
+<body>
+  <h1>Detection Results</h1>
+  <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image">
+  <table border="1">
+    <tr>
+      <th>Image Name</th>
+      <th>Prediction</th>
+      <th>Confidence</th>
+    </tr>
+    {% for result in results %}
+    <tr>
+      <td>{{ result["Image Name"] }}</td>
+      <td>{{ result["Prediction"] }}</td>
+      <td>{{ result["Confidence"] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="/">Upload Another Image</a>
+</body>
+</html>
